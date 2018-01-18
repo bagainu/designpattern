@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# SCons temp files
+*.dblite
+
