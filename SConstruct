@@ -1,5 +1,5 @@
 env = Environment()
-env.Decider('MD5')
+env.Decider('MD5-timestamp')
 
 env.Append(CPPPATH=['.'])
 env.Append(CPPPATH=['./include'])
