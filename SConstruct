@@ -6,7 +6,8 @@ env.Append(CPPPATH=['./include'])
 
 sub_scripts = Split("""
     strategy/SConscript
+    observer/SConscript
 """)
 
 build = SConscript(sub_scripts, exports=['env'])
-env.Install('./built', build)
+# env.Install('./built', build)
