@@ -6,11 +6,11 @@ class TemperatureDisplay : public Observer, public std::enable_shared_from_this<
 public:
     TemperatureDisplay();
     ~TemperatureDisplay();
-    void initiate(WeatherDataPtr newWeatherData);
+    void initiate(ObservablePtr newWeatherData);
     void update();
     void show();
 
 private:
-    WeatherDataPtr weatherData;
+    ObservablePtr weatherData;
     double temperature;
 };

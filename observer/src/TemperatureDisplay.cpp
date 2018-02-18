@@ -7,9 +7,10 @@ TemperatureDisplay::TemperatureDisplay() : temperature(0)
 
 TemperatureDisplay::~TemperatureDisplay()
 {
+    weatherData->deleteObserver(shared_from_this());
 }
 
-void TemperatureDisplay::initiate(WeatherDataPtr newWeatherData)
+void TemperatureDisplay::initiate(ObservablePtr newWeatherData)
 {
     weatherData = newWeatherData;
     weatherData->addObserver(shared_from_this());
@@ -17,7 +18,7 @@ void TemperatureDisplay::initiate(WeatherDataPtr newWeatherData)
 
 void TemperatureDisplay::update()
 {
-    temperature = weatherData->getTemperature();
+    temperature = dynamic_cast<WeatherData*>(weatherData.get())->getTemperature();
     show();
 }
 

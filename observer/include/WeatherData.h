@@ -11,11 +11,13 @@ public:
     double getHumidity();
     void changeData(double temperature, double pressure, double humidity);
 
+    void addObserver(ObserverPtr observer);
+    void deleteObserver(ObserverPtr observer);
+    void notifyObservers();
+
 private:
+    std::vector<ObserverPtr> observers;
     double temperature;
     double pressure;
     double humidity;
 };
-
-typedef std::shared_ptr<WeatherData> WeatherDataPtr;
-typedef std::weak_ptr<WeatherData> WeatherDataWPtr;

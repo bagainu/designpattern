@@ -7,9 +7,10 @@ PressureDisplay::PressureDisplay() : pressure(0)
 
 PressureDisplay::~PressureDisplay()
 {
+    weatherData->deleteObserver(shared_from_this());
 }
 
-void PressureDisplay::initiate(WeatherDataPtr newWeatherData)
+void PressureDisplay::initiate(ObservablePtr newWeatherData)
 {
     weatherData = newWeatherData;
     weatherData->addObserver(shared_from_this());
@@ -17,7 +18,7 @@ void PressureDisplay::initiate(WeatherDataPtr newWeatherData)
 
 void PressureDisplay::update()
 {
-    pressure = weatherData->getPressure();
+    pressure = dynamic_cast<WeatherData*>(weatherData.get())->getPressure();
     show();
 }
 

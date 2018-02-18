@@ -6,11 +6,11 @@ class HumidityDisplay : public Observer, public std::enable_shared_from_this<Hum
 public:
     HumidityDisplay();
     ~HumidityDisplay();
-    void initiate(WeatherDataPtr newWeatherData);
+    void initiate(ObservablePtr newWeatherData);
     void update();
     void show();
 
 private:
-    WeatherDataPtr weatherData;
+    ObservablePtr weatherData;
     double humidity;
 };

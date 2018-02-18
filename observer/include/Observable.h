@@ -5,14 +5,11 @@
 class Observable
 {
 public:
-    Observable();
-    virtual ~Observable();
-    void addObserver(ObserverPtr observer);
-    void deleteObserver(ObserverPtr observer);
-    void notifyObservers();
-
-private:
-    std::vector<ObserverPtr> observers;
+    Observable() {}
+    virtual ~Observable() {}
+    virtual void addObserver(ObserverPtr observer) = 0;
+    virtual void deleteObserver(ObserverPtr observer) = 0;
+    virtual void notifyObservers() = 0;
 };
 
 typedef std::shared_ptr<Observable> ObservablePtr;

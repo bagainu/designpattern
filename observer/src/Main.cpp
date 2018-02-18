@@ -16,6 +16,7 @@ int main()
 
     weatherData->changeData(1, 1, 2);
     weatherData->changeData(3, 4, 5);
+    weatherData->changeData(10, 11, 12);
 
     return 0;
 }

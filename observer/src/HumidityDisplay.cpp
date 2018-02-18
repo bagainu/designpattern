@@ -7,9 +7,10 @@ HumidityDisplay::HumidityDisplay() : humidity(0)
 
 HumidityDisplay::~HumidityDisplay()
 {
+    weatherData->deleteObserver(shared_from_this());
 }
 
-void HumidityDisplay::initiate(WeatherDataPtr newWeatherData)
+void HumidityDisplay::initiate(ObservablePtr newWeatherData)
 {
     weatherData = newWeatherData;
     weatherData->addObserver(shared_from_this());
@@ -17,7 +18,7 @@ void HumidityDisplay::initiate(WeatherDataPtr newWeatherData)
 
 void HumidityDisplay::update()
 {
-    humidity = weatherData->getHumidity();
+    humidity = dynamic_cast<WeatherData*>(weatherData.get())->getHumidity();
     show();
 }
 

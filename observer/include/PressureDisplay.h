@@ -6,11 +6,11 @@ class PressureDisplay : public Observer, public std::enable_shared_from_this<Pre
 public:
     PressureDisplay();
     ~PressureDisplay();
-    void initiate(WeatherDataPtr newWeatherData);
+    void initiate(ObservablePtr newWeatherData);
     void update();
     void show();
 
 private:
-    WeatherDataPtr weatherData;
+    ObservablePtr weatherData;
     double pressure;
 };
