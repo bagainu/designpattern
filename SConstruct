@@ -7,6 +7,8 @@ env.Append(CPPPATH=['./include'])
 sub_scripts = Split("""
     strategy/SConscript
     observer/SConscript
+    decorator/SConscript
+    factory/SConscript
 """)
 
 build = SConscript(sub_scripts, exports=['env'])

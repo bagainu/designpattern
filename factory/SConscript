@@ -1,0 +1,7 @@
+Import('env')
+
+env_local = env.Clone()
+
+src_local = Glob('./src/*.cpp')
+build_local = env_local.Program('factory', src_local)
+env_local.Install('../built', build_local)

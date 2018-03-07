@@ -34,3 +34,8 @@
 # SCons temp files
 *.dblite
 
+# VSCode config files
+*.vscode
+
+# mac files
+*.DS_Store
