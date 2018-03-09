@@ -1,0 +1,9 @@
+Import('env')
+
+env_local = env.Clone()
+# env_local.Append(CPPFLAGS=['-Wall', '-std=c++11', '-ggdb'])
+env_local.Append(CPPFLAGS=['-std=c++11']) # need to explicitly set to c++11
+
+src_local = Glob('./src/*.cpp')
+build_local = env_local.Program('singleton', src_local)
+env_local.Install('../built', build_local)
